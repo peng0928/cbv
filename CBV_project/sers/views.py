@@ -111,7 +111,7 @@ class PulishViews(GenericAPIView):
     serializer_class = PulishSerializers
 
     def get(self, request):
-        serializer = PulishSerializers(instance=self.get_queryset(), many=True)
+        serializer = self.get_serializer(instance=self.get_queryset(), many=True)
         return Response(serializer.data)
 
     def post(self, request):
